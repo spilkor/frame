@@ -1,0 +1,7 @@
+com\spilkor\frame\model\BaseEntity.class
+com\spilkor\frame\model\Module.class
+com\spilkor\frame\model\EntityDescriptor.class
+com\spilkor\frame\model\FieldDescriptor.class
+com\spilkor\frame\model\User.class
+com\spilkor\frame\model\BusinessEntity.class
+com\spilkor\frame\model\FrameEntity.class
