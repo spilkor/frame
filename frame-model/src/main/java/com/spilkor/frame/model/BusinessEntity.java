@@ -12,12 +12,12 @@ public abstract class BusinessEntity extends BaseEntity<Long> {
 
 
     @Override
-    Long getId() {
+    public Long getId() {
         return id;
     }
 
     @Override
-    void setId(Long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 }

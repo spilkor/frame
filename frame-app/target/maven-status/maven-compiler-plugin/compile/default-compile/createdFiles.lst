@@ -1,9 +1,0 @@
-com\example\application\views\helloworld\HelloWorldView.class
-com\example\application\views\MainLayout$MenuItemInfo.class
-com\example\application\views\MainLayout.class
-com\example\application\Application.class
-com\example\application\notapp\BusinessManager.class
-com\example\application\notapp\ServiceHelper.class
-com\example\application\views\about\AboutView.class
-com\example\application\notapp\CrudManager.class
-com\example\application\views\LoginView.class

@@ -15,12 +15,12 @@ public abstract class FrameEntity extends BaseEntity<String> {
 
 
     @Override
-    String getId() {
+    public String getId() {
         return id;
     }
 
     @Override
-    void setId(String id) {
+    public void setId(String id) {
         this.id = id;
     }
 

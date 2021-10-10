@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
+
 @Entity
 @Table(name = "FRM_USER")
 public class User extends BusinessEntity {
