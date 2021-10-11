@@ -1,20 +1,30 @@
 package com.spilkor.frame.web;
 
+import com.spilkor.frame.properties.VaadinSessionAttribute;
+import com.vaadin.flow.component.ClickEvent;
+import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.Tag;
+import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.component.page.Page;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.RouterLayout;
 import com.vaadin.flow.server.PWA;
+import com.vaadin.flow.server.VaadinSession;
 
 
-@PWA(name = "My App", shortName = "My App", enableInstallPrompt = false)
-@PageTitle("Main")
+@PWA(name = "Frame Application", shortName = "Frame App", enableInstallPrompt = false)
 @Tag("vaadin-app-layout")
 public class MainLayout extends VerticalLayout implements RouterLayout {
 
     public MainLayout() {
-        add(new Button("LOGOUT"));
+        Button logoutButton = new Button("Logout");
+        logoutButton.addClickListener(event -> {
+            VaadinSession.getCurrent().setAttribute(VaadinSessionAttribute.USER, null);
+            UI.getCurrent().getPage().reload();
+        });
+        add(logoutButton);
     }
 
 }

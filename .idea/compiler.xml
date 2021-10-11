@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="frame-application" />
         <module name="frame-model" />
+        <module name="frame-properties" />
         <module name="frame-repository" />
         <module name="frame-service" />
         <module name="frame-web" />
