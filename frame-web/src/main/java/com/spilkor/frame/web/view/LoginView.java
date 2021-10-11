@@ -4,22 +4,26 @@ import com.spilkor.frame.model.dto.UserDTO;
 import com.spilkor.frame.properties.VaadinSessionAttribute;
 import com.spilkor.service.ServiceHelper;
 import com.spilkor.service.UserService;
+import com.vaadin.flow.component.Key;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.component.textfield.PasswordField;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.server.VaadinSession;
 import org.springframework.util.StringUtils;
 
+import java.awt.event.KeyEvent;
+
 @PageTitle("Login")
 @Route(value = "login")
 public class LoginView extends VerticalLayout {
 
     private TextField userNameField = new TextField("User name");
-    private TextField passwordField = new TextField("Password");
+    private PasswordField passwordField = new PasswordField("Password");
     private Label errorLabel = new Label("");
 
     public LoginView() {
@@ -28,6 +32,7 @@ public class LoginView extends VerticalLayout {
         setDefaultHorizontalComponentAlignment(Alignment.CENTER);
 
         add(userNameField);
+        userNameField.focus();
 
         add(passwordField);
 
@@ -51,6 +56,7 @@ public class LoginView extends VerticalLayout {
                 }
             }
         });
+        loginButton.addClickShortcut(Key.ENTER);
 
         add(errorLabel);
         errorLabel.setVisible(false);

@@ -7,8 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.util.Assert;
 
+import java.util.List;
+
 @Component
-public class UserService {
+public class UserService extends FrameService {
 
     private final UserRepository userRepository;
 
@@ -27,6 +29,10 @@ public class UserService {
         } else {
             return new UserDTO(user);
         }
+    }
+
+    public List<User> findAll() {
+        return userRepository.findAll();
     }
 
 }

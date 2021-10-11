@@ -15,7 +15,7 @@ public class ServiceHelper implements ApplicationContextAware {
         ServiceHelper.applicationContext = applicationContext;
     }
 
-    public static <T> T getService(Class<T> serviceClazz) {
+    public static <T extends FrameService> T getService(Class<T> serviceClazz) {
         return applicationContext.getBean(serviceClazz);
     }
 }
