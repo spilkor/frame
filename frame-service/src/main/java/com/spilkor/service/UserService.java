@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.util.Assert;
 
 import java.util.List;
+import java.util.Optional;
 
 @Component
 public class UserService extends FrameService {
@@ -29,6 +30,10 @@ public class UserService extends FrameService {
         } else {
             return new UserDTO(user);
         }
+    }
+
+    public User findById(Long id) {
+        return userRepository.findById(id).orElse(null);
     }
 
     public List<User> findAll() {

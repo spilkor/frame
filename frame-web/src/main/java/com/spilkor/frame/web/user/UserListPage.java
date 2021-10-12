@@ -1,6 +1,8 @@
-package com.spilkor.frame.web.page;
+package com.spilkor.frame.web.user;
 
 import com.spilkor.frame.model.User;
+import com.spilkor.frame.web.page.FramePage;
+import com.spilkor.frame.web.page.StaticPage;
 import com.spilkor.service.ServiceHelper;
 import com.spilkor.service.UserService;
 import com.vaadin.flow.component.button.Button;
@@ -12,13 +14,13 @@ import com.vaadin.flow.data.selection.SelectionListener;
 import java.util.ArrayList;
 import java.util.List;
 
-@StaticFramePage(pageId = "userList", pageTitle = "User List")
-public class UsersPage extends FramePage {
+@StaticPage(pageId = "userlist")
+public class UserListPage extends FramePage {
 
     private final UserService userService = ServiceHelper.getService(UserService.class);
     private UserEditComponent userEditComponent = null;
 
-    public UsersPage() {
+    public UserListPage() {
         List<User> users = new ArrayList<>(userService.findAll());
 
         Grid<User> grid = new Grid<>(User.class);
@@ -45,6 +47,15 @@ public class UsersPage extends FramePage {
         });
     }
 
+    @Override
+    public String getPageTitle() {
+        return "User List";
+    }
+
+    @Override
+    public void refresh() {
+
+    }
 
     private class UserEditComponent extends VerticalLayout {
         public UserEditComponent(User user, Grid<User> grid) {

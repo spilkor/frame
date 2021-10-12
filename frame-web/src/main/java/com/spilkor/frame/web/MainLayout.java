@@ -1,14 +1,10 @@
 package com.spilkor.frame.web;
 
 import com.spilkor.frame.properties.VaadinSessionAttribute;
-import com.vaadin.flow.component.ClickEvent;
-import com.vaadin.flow.component.ComponentEventListener;
 import com.vaadin.flow.component.Tag;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
-import com.vaadin.flow.component.page.Page;
-import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.RouterLayout;
 import com.vaadin.flow.server.PWA;
 import com.vaadin.flow.server.VaadinSession;
