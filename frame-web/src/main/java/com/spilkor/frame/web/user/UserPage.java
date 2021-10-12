@@ -14,7 +14,7 @@ public class UserPage<T extends User> extends AbstractBaseEntityPage<T> {
 
     @Override
     public String getPageTitle() {
-        return "User List";
+        return "User";
     }
 
     @Override

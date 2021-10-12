@@ -10,11 +10,12 @@ import com.vaadin.flow.component.grid.Grid;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.data.selection.SelectionListener;
+import com.vaadin.flow.spring.annotation.UIScope;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@StaticPage(pageId = "userlist")
+@StaticPage(pageId = "user-list")
 public class UserListPage extends FramePage {
 
     private final UserService userService = ServiceHelper.getService(UserService.class);

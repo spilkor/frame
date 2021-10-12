@@ -27,9 +27,10 @@ public class FrameServiceInitializer implements VaadinServiceInitListener {
                 event.forwardTo(DashBoardView.class);
             }
         } else if(!SecurityUtils.isUserLoggedIn()) {
-            String pathWithParameters = event.getLocation().getPathWithQueryParameters();
-            VaadinSession.getCurrent().setAttribute(VaadinSessionAttribute.PATH_BEFORE_LOGIN_REDIRECT, ".".equals(pathWithParameters) ? "" : pathWithParameters);
-            event.forwardTo(LoginView.class);
+//            String pathWithParameters = event.getLocation().getPathWithQueryParameters();
+//            VaadinSession.getCurrent().setAttribute(VaadinSessionAttribute.PATH_BEFORE_LOGIN_REDIRECT, ".".equals(pathWithParameters) ? "" : pathWithParameters);
+//            event.forwardTo(LoginView.class);
+            event.rerouteTo(LoginView.class);
         }
     }
 }

@@ -50,9 +50,10 @@ public class LoginView extends VerticalLayout {
                 if (userDTO == null){
                     addError("Bad input");
                 } else {
-                    String pathBeforeLoginRedirect = (String) VaadinSession.getCurrent().getAttribute(VaadinSessionAttribute.PATH_BEFORE_LOGIN_REDIRECT);
-                    VaadinSession.getCurrent().setAttribute(VaadinSessionAttribute.PATH_BEFORE_LOGIN_REDIRECT, null);
-                    UI.getCurrent().navigate(pathBeforeLoginRedirect == null ? "" : pathBeforeLoginRedirect);
+//                    String pathBeforeLoginRedirect = (String) VaadinSession.getCurrent().getAttribute(VaadinSessionAttribute.PATH_BEFORE_LOGIN_REDIRECT);
+//                    VaadinSession.getCurrent().setAttribute(VaadinSessionAttribute.PATH_BEFORE_LOGIN_REDIRECT, null);
+//                    UI.getCurrent().navigate(pathBeforeLoginRedirect == null ? "" : pathBeforeLoginRedirect);
+                    UI.getCurrent().getPage().reload();
                 }
             }
         });

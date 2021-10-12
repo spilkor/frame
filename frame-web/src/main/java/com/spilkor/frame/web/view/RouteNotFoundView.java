@@ -6,11 +6,11 @@ import com.vaadin.flow.router.*;
 import javax.servlet.http.HttpServletResponse;
 
 @ParentLayout(MainLayout.class)
+@PageTitle("Not found")
 public class RouteNotFoundView extends RouteNotFoundError {
 
     @Override
     public int setErrorParameter(BeforeEnterEvent event, ErrorParameter<NotFoundException> parameter) {
-        getElement().setText("Target not found!");
         return HttpServletResponse.SC_NOT_FOUND;
     }
 

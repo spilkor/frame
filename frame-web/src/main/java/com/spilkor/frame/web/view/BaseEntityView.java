@@ -26,6 +26,7 @@ public class BaseEntityView extends VerticalLayout implements BeforeEnterObserve
     private String pageTitle;
     private final BusinessEntityService businessEntityService = ServiceHelper.getService(BusinessEntityService.class);
     private final FrameEntityService frameEntityService = ServiceHelper.getService(FrameEntityService.class);
+    private AbstractBaseEntityPage abstractBaseEntityPage = null;
 
     @Override
     public String getPageTitle() {
@@ -34,10 +35,13 @@ public class BaseEntityView extends VerticalLayout implements BeforeEnterObserve
 
     @Override
     public void beforeEnter(BeforeEnterEvent event) {
+        if (abstractBaseEntityPage != null){
+            remove(abstractBaseEntityPage);
+        } //FIXME
+
         String entityDescriptorId = event.getRouteParameters().get("entityDescriptorId").orElse(null);
         String id = event.getRouteParameters().get("id").orElse(null);
 
-        AbstractBaseEntityPage abstractBaseEntityPage = null;
         try {
             abstractBaseEntityPage = createPageInstance(entityDescriptorId, id);
             pageTitle = abstractBaseEntityPage.getPageTitle();
@@ -76,7 +80,5 @@ public class BaseEntityView extends VerticalLayout implements BeforeEnterObserve
         }
         throw new ClassNotFoundException();
     }
-
-
 
 }

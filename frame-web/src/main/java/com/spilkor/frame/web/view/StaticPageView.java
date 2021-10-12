@@ -6,6 +6,7 @@ import com.spilkor.frame.web.page.StaticPage;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.router.*;
+import com.vaadin.flow.spring.annotation.UIScope;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.cglib.beans.BeanGenerator;
 import org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider;
@@ -17,6 +18,8 @@ import java.lang.reflect.InvocationTargetException;
 @Route(value = "page/:pageId", layout = MainLayout.class)
 public class StaticPageView extends VerticalLayout implements BeforeEnterObserver, HasDynamicTitle {
 
+    FramePage framePage = null;
+
     private String pageTitle;
 
     @Override
@@ -26,9 +29,12 @@ public class StaticPageView extends VerticalLayout implements BeforeEnterObserve
 
     @Override
     public void beforeEnter(BeforeEnterEvent event) {
+        if (framePage != null){
+            remove(framePage);
+        }//FXME
+
         String pageId = event.getRouteParameters().get("pageId").orElse(null);
 
-        FramePage framePage = null;
         try {
             framePage = createFramePageInstance(pageId);
             pageTitle = framePage.getPageTitle();
